@@ -1,6 +1,8 @@
 # Upload Library
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+It contains a plain projekt to test the library. Use upload-0.0.1.tgz file with imports in the source folder to use the
+Library in your project.
 
 ## Error Code Information
 
