@@ -1,27 +1,78 @@
-# Uploadlibtest
+# Upload Library
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-## Development server
+## Error Code Information
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Your Backend can output Error Codes depending on the uploaded File.
+The current implemented Error Codes in the Library are the following:
+```sh
+0 = Upload Complete
 
-## Code scaffolding
+1 = Fileformat incorrect!
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2 = Filetype invalid!
 
-## Build
+3 = File could not be processed!
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+default = Unknown Error!
+```
+Your backend can output these values depending on the Error you wish to ouput on Screen and in the console.
 
-## Running unit tests
+## Imports needed
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To use the Library you need to make the following imports: (Based on upload-0.0.1.tgz)
 
-## Running end-to-end tests
+In app.module.ts(depends on where you need the component):
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`import { UploadModule } from 'upload'; (Add to imports)`
 
-## Further help
+`import { UploadService } from 'upload'; (Add to providers)`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Library Usage
+
+The component is using the following html tag:
+
+`<UploadComponent backendURL="YourBackendUrl" filesizelimit=5242880 acceptfiletype=".xml">`
+
+USE ALL INPUTS! Otherwise the component will not work!
+
+- backendURL: Post your backend Url here
+
+- filesizelimit: Number of bytes accepted
+
+- acceptfiletype: Limitation in select file window
+
+For no limitation in the acceptfiletype leave it as an empty string.
+
+## Styling
+
+To style the Upload component use the following classes in your global styles.scss file:
+
+- `.btn (for the button styles)`
+
+- `.margin-left (margin for all the buttons except the first one)`
+
+- `.progress (to style the progress bar)`
+
+- `.checkbox (to style the checkboxes)`
+
+- `.snackbar (to align and style the snackbar)`
+
+Example:
+ ```sh
+ .snackbar{
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 10px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+```
+"# angular-multi-file-upload-with-progressbar" 
